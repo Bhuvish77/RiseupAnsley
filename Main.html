@@ -99,10 +99,10 @@
         }
 
         .slide {
-            display: none; width: 85%; height: 75%;
-            object-fit: cover; border: 15px solid white;
+            display: none; max-width: 90%; max-height: 80vh;width: auto;height: auto;
+            object-fit: contain; border: 8px solid white;
             border-radius: 10px; box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-            animation: zoomIn 1s ease-out;
+            animation: zoomIn 1.5s ease-out;margin :auto;
         }
 
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
@@ -147,10 +147,16 @@
     </div>
 
     <div id="slideshow-container">
-        <img src="Pic1.jpg" class="slide">
+        <img src="pic11.jpeg" class="slide">
+        <img src="pic12.jpeg" class="slide">
+        <img src="pic13.jpeg" class="slide">
+        <img src="pic14.jpeg" class="slide">
+        <img src="pic15.jpeg" class="slide">
+        <img src="pic17.jpeg" class="slide">
         <img src="Pic2.jpg" class="slide">
-        <img src="Pic3.jpg" class="slide">
-        <img src="pic4.jpg" class="slide">
+        <img src="pic6.jpeg" class="slide">
+        <img src="pic8.jpeg" class="slide">
+        <img src="pic18.jpeg" class="slide">
     </div>
 
     <div id="final-page">
