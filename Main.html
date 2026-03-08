@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Favvvvv Eruma 🐃</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@1,500&display=swap');
+
+        :root {
+            --soft-pink: #ffe5ec;
+            --deep-rose: #ff4d6d;
+            --text-dark: #590d22;
+        }
+
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--soft-pink);
+            overflow: hidden; color: var(--text-dark);
+        }
+
+        /* Bubbly Background Animation */
+        .bubble-bg {
+            position: fixed; inset: 0; z-index: -1;
+            background: linear-gradient(180deg, #ffe5ec 0%, #ffc2d1 100%);
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute; bottom: -100px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: rise 12s infinite ease-in;
+            pointer-events: none;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            50% { opacity: 0.7; }
+            100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+        }
+
+        /* 1. Hanging Letter Box Animation */
+        #opening-page {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: radial-gradient(circle, #fff0f3, #ffe5ec);
+            z-index: 1000; position: relative;
+        }
+
+        .hanging-container {
+            animation: swing 3s infinite ease-in-out;
+            transform-origin: top center;
+            text-align: center;
+        }
+
+        /* The String */
+        .hanging-container::before {
+            content: ""; position: absolute; top: -200px; left: 50%;
+            width: 2px; height: 200px; background: #d63384;
+        }
+
+        .big-letter-box {
+            background: white; padding: 50px; border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(214, 51, 132, 0.2);
+            border: 2px solid var(--deep-rose); width: 450px;
+        }
+
+        @keyframes swing {
+            0% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+            100% { transform: rotate(-3deg); }
+        }
+
+        .open-this-btn {
+            background: var(--deep-rose); color: white; border: none;
+            padding: 15px 40px; border-radius: 50px; cursor: pointer;
+            font-size: 1.3rem; margin-top: 25px; transition: 0.4s;
+            box-shadow: 0 8px 15px rgba(255, 77, 109, 0.3);
+        }
+
+        /* 2. Emotional Message Phase */
+        #emotional-phase {
+            display: none; height: 100vh; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            padding: 0 20px;
+        }
+
+        .typewriter-text {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem;
+            max-width: 800px; min-height: 150px; line-height: 1.6;
+        }
+
+        /* 3. Landscape Slideshow */
+        #slideshow-container {
+            display: none; height: 100vh; width: 100vw;
+            align-items: center; justify-content: center;
+            background: rgba(255, 229, 236, 0.9);
+        }
+
+        .slide {
+            display: none; width: 85%; height: 75%;
+            object-fit: cover; border: 15px solid white;
+            border-radius: 10px; box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            animation: zoomIn 1s ease-out;
+        }
+
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+
+        /* 6. Final Letter */
+        #final-page {
+            display: none; height: 100vh; width: 100vw;
+            background: white; overflow-y: auto; padding: 80px 20px;
+            box-sizing: border-box;
+        }
+
+        .final-letter-content {
+            max-width: 750px; margin: 0 auto; line-height: 2.2;
+            font-size: 1.25rem; text-align: justify; color: #444;
+        }
+
+        .highlight { color: var(--deep-rose); font-weight: 600; }
+        .center-msg { text-align: center; display: block; margin: 30px 0; font-size: 1.6rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="Oru_Paathi_Kadhavu_HaricharanVandana_Srinivasan.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="bubble-bg" id="bubbles"></div>
+
+    <div id="opening-page">
+        <div class="hanging-container">
+            <div class="big-letter-box">
+                <h1 style="font-family: 'Dancing Script'; font-size: 2.5rem;">I know how down you've felt Eruma</h1>
+                <p style="font-size: 1.2rem;">But I don't know what to do but I've made this for you ❤️</p>
+                <button class="open-this-btn" onclick="goToEmotionalPhase()">open this ❤️</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="emotional-phase">
+        <div class="typewriter-text" id="typewriter"></div>
+        <button id="idhaPaaru" class="open-this-btn" style="display:none;" onclick="startSlideshow()">Idha Paaru eruma ❤️</button>
+    </div>
+
+    <div id="slideshow-container">
+        <img src="Pic1.jpg" class="slide">
+        <img src="Pic2.jpg" class="slide">
+        <img src="Pic3.jpg" class="slide">
+        <img src="pic4.jpg" class="slide">
+    </div>
+
+    <div id="final-page">
+        <div class="final-letter-content">
+            <p>Hey <span class="highlight">Eruma</span> namma evlo memories onna cherish pannirukkom pathiya, we have gone through both Happy and Sad Situations Eruma ......</p>
+            <p>I know the Pain you've gone through a I know how you felt when you've been said you are not a part of MC event..... Nee en munnadi feel ipa vara kannu munnadi Eh irukku eruma....</p>
+            <p>I feel very sad for that eruma but I know we'll tackle this together bcuz we know how we guys are don't feel very sad eruma..... Think about the moments we've been together.....</p>
+            <p>We can't guarantee that setbacks don't attack us again we should be always together for each other to hold us back erumaaa....</p>
+            <p>Enakku theriyum how you felt when I said it to youu and I saw you when u were weeping, but don't Worry........</p>
+            
+            <span class="center-msg">Hey Namma Acheive Panna neraya irukku Eruma vaa Pathukala ....</span>
+            <span class="center-msg">For You Always I'll be vaa Namma Pathukala.........</span>
+            
+            <h1 style="font-family: 'Dancing Script'; text-align: center; color: var(--deep-rose); font-size: 3.5rem;">
+                Infosys Intern Work Panradhuku ready ahhhhh!!!!!! 🐃🔥
+            </h1>
+        </div>
+    </div>
+
+    <script>
+        // Bubble Generator
+        const bubbleWrap = document.getElementById('bubbles');
+        function createBubble() {
+            const b = document.createElement('div');
+            b.className = 'bubble';
+            const size = Math.random() * 60 + 20 + 'px';
+            b.style.width = size; b.style.height = size;
+            b.style.left = Math.random() * 100 + 'vw';
+            b.style.animationDuration = Math.random() * 5 + 7 + 's';
+            bubbleWrap.appendChild(b);
+            setTimeout(() => b.remove(), 12000);
+        }
+        setInterval(createBubble, 500);
+
+        // Transition Functions
+        function goToEmotionalPhase() {
+            document.getElementById('opening-page').style.display = 'none';
+            document.getElementById('emotional-phase').style.display = 'flex';
+            typeWriter();
+        }
+
+        const msg = "Unnala dhan Eruma Na Realize panna naa Yaaru and Na epdi irundhurukkaen and you've been with me when I felt.....Ipo you feel very low then how I would feel Eruma... 🐃";
+        let i = 0;
+        function typeWriter() {
+            if (i < msg.length) {
+                document.getElementById("typewriter").innerHTML += msg.charAt(i);
+                i++;
+                setTimeout(typeWriter, 80);
+            } else {
+                document.getElementById('idhaPaaru').style.display = 'block';
+            }
+        }
+
+        function startSlideshow() {
+            document.getElementById('emotional-phase').style.display = 'none';
+            document.getElementById('slideshow-container').style.display = 'flex';
+            document.getElementById('bgMusic').play();
+            showSlides();
+        }
+
+        let currentSlide = 0;
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            if (currentSlide < slides.length) {
+                slides.forEach(s => s.style.display = 'none');
+                slides[currentSlide].style.display = 'block';
+                currentSlide++;
+                setTimeout(showSlides, 10000); // 10 Seconds
+            } else {
+                document.getElementById('slideshow-container').style.display = 'none';
+                document.getElementById('final-page').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
